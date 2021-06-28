@@ -48,7 +48,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    @DisplayName("given any number of inputs, " +
+    @DisplayName("given any number of inputs with new line or comma, " +
             "when doing add operation, " +
             "then returned value is the sum of the given inputs")
     void addOnAnyInputsWithValidDelimiter_returns_sum() {
