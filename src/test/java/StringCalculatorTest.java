@@ -23,4 +23,14 @@ public class StringCalculatorTest {
         int result = calculator.add("1");
         assertEquals(1, result);
     }
+
+    @Test
+    @DisplayName("given 2 non-empty inputs, " +
+            "when doing add operation, " +
+            "then returned value is the sum of 2 inputs")
+    void addOnTwoNonEmptyInputs_returns_sum() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("1", "2");
+        assertEquals(3, result);
+    }
 }
