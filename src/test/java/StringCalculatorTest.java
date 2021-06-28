@@ -62,7 +62,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    @DisplayName("given any number of inputs with new a given delimiter, " +
+    @DisplayName("given any number of inputs with a given delimiter, " +
             "when doing add operation, " +
             "then returned value is the sum of the given inputs")
     void addOnAnyInputsWithGivenDelimiter_returns_sum() {
@@ -98,5 +98,18 @@ public class StringCalculatorTest {
         assertEquals(1, calculator.add("1,2000"));
         assertEquals(4, calculator.add("1,1001,3"));
         assertEquals(1008, calculator.add("1,999,1001,8"));
+    }
+
+    @Test
+    @DisplayName("given inputs with a given delimiter of any length, " +
+            "when doing add operation, " +
+            "then returned value is the sum of the given inputs after the delimiter")
+    void addOnInputsWithGivenDelimiter_returns_sum() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(1, calculator.add("//''\n1"));
+        assertEquals(3, calculator.add("//--\n1--2"));
+        assertEquals(6, calculator.add("//***\n1***2***3"));
+        assertEquals(10, calculator.add("//####\n1,2\n3####4"));
+        assertEquals(15, calculator.add("//**\n1,2,3,4\n5"));
     }
 }

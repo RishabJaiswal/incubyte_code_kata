@@ -35,7 +35,10 @@ public class StringCalculator {
         String[] numberStrings = numbers.split(delimiter);
         int[] numberInts = new int[numberStrings.length];
         for (int index = 0; index < numberStrings.length; index++) {
-            numberInts[index] = Integer.parseInt(numberStrings[index].trim());
+            String number = numberStrings[index].trim();
+            if (!number.isEmpty()) {
+                numberInts[index] = Integer.parseInt(number);
+            }
         }
         return numberInts;
     }
