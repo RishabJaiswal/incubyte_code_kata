@@ -40,7 +40,10 @@ public class StringCalculatorTest {
             "then returned value is the sum of the given inputs")
     void addOnAnyInputs_returns_sum() {
         StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("1", "2", "3", "4");
-        assertEquals(10, result);
+        assertEquals(1, calculator.add("1"));
+        assertEquals(3, calculator.add("1", "2"));
+        assertEquals(6, calculator.add("1", "2", "3"));
+        assertEquals(10, calculator.add("1", "2", "3", "4"));
+        assertEquals(15, calculator.add("1", "2", "3", "4", "5"));
     }
 }
