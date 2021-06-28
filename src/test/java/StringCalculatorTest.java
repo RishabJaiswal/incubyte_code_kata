@@ -2,6 +2,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
     @Test
@@ -71,5 +72,20 @@ public class StringCalculatorTest {
         assertEquals(6, calculator.add("//#\n1\n2#3"));
         assertEquals(10, calculator.add("//#\n1,2\n3#4"));
         assertEquals(15, calculator.add("//#\n1,2,3,4\n5"));
+    }
+
+    @Test
+    @DisplayName("given any number of inputs with a negative number, " +
+            "when doing add operation, " +
+            "then an exception is thrown")
+    void addOnAnyNegativeInputs_throws_exception() {
+        StringCalculator calculator = new StringCalculator();
+        Exception exception = assertThrows(
+                NumberFormatException.class,
+                () -> calculator.add("//'\n1'-2'-3")
+        );
+
+        //assert exception message
+        assertEquals("[-2, -3]", exception.getMessage());
     }
 }

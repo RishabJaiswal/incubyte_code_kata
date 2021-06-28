@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
     /**
@@ -38,14 +41,25 @@ public class StringCalculator {
     }
 
     /**
-     * multiple inputs
+     * add multiple inputs or
+     * throw an exception if an input is negative
      */
-    private int addInputs(int... numbers) {
+    private int addInputs(int... numbers) throws NumberFormatException {
         int sum = 0;
+        List<Integer> negativeNumbers = new ArrayList<Integer>();
         for (int number : numbers) {
             sum += number;
+            if (number < 0) {
+                negativeNumbers.add(number);
+            }
         }
-        return sum;
+
+        //throw an exception if an input is negative
+        if (negativeNumbers.size() > 0) {
+            throw new NumberFormatException(negativeNumbers.toString());
+        } else {
+            return sum;
+        }
     }
 
     /**
