@@ -4,7 +4,7 @@ public class StringCalculator {
      * get integer numbers from a string of numbers
      */
     private int[] getNumbers(String numbers) {
-        String[] numberStrings = numbers.split(",");
+        String[] numberStrings = numbers.split("[\\n,]");
         int[] numberInts = new int[numberStrings.length];
         for (int index = 0; index < numberStrings.length; index++) {
             numberInts[index] = Integer.parseInt(numberStrings[index].trim());

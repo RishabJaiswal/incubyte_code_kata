@@ -46,4 +46,17 @@ public class StringCalculatorTest {
         assertEquals(10, calculator.add("1,2,3,4"));
         assertEquals(15, calculator.add("1,2,3,4,5"));
     }
+
+    @Test
+    @DisplayName("given any number of inputs, " +
+            "when doing add operation, " +
+            "then returned value is the sum of the given inputs")
+    void addOnAnyInputsWithValidDelimiter_returns_sum() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(1, calculator.add("1"));
+        assertEquals(3, calculator.add("1\n2"));
+        assertEquals(6, calculator.add("1\n2,3"));
+        assertEquals(10, calculator.add("1,2\n3,4"));
+        assertEquals(15, calculator.add("1,2,3,4\n5"));
+    }
 }
