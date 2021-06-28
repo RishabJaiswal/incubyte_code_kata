@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StringCalculatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-28T07:15:03" hostname="silicon" time="0.018">
+<testsuite name="StringCalculatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-06-28T07:26:57" hostname="silicon" time="0.031">
   <properties/>
-  <testcase name="given a single empty input, when doing add operation, then returned value is 0" classname="StringCalculatorTest" time="0.018"/>
+  <testcase name="given a single non-empty input, when doing add operation, then returned value is given input" classname="StringCalculatorTest" time="0.023"/>
+  <testcase name="given a single empty input, when doing add operation, then returned value is 0" classname="StringCalculatorTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

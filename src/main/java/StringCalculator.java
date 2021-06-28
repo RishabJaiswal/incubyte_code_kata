@@ -1,9 +1,13 @@
 public class StringCalculator {
-    int calculate(){
-        return  1;
-    }
 
+    /**
+     * add given inputs
+     * */
     public int add(String... inputs) {
-        return 0;
+        if (inputs[0].equals("")) {
+            return 0;
+        } else {
+            return Integer.parseInt(inputs[0]);
+        }
     }
 }
