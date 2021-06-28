@@ -1,6 +1,31 @@
 public class StringCalculator {
 
     /**
+     * get delimiter from the given input
+     */
+    private String getDelimiter(String numbersInput) {
+        String delimiter = "\\n,";
+        if (numbersInput.startsWith("//")) {
+            String[] splits = numbersInput.substring(2).split("\n", 2);
+            delimiter += splits[0];
+        }
+        delimiter = "[" + delimiter + "]";
+        return delimiter;
+    }
+
+    /**
+     * get numbers list string from the given input
+     */
+    private String getNumbersString(String numbersInput) {
+        String numbers = numbersInput;
+        if (numbersInput.startsWith("//")) {
+            String[] splits = numbersInput.substring(2).split("\n", 2);
+            numbers = splits[1];
+        }
+        return numbers;
+    }
+
+    /**
      * get integer numbers from a string of numbers
      */
     private int[] getNumbers(String numbers, String delimiter) {
@@ -30,14 +55,8 @@ public class StringCalculator {
         if (numbersInput.isEmpty()) {
             return 0;
         } else {
-            String delimiter = "\\n,";
-            String numbers = numbersInput;
-            if (numbersInput.startsWith("//")) {
-                String[] s = numbersInput.substring(2).split("\n", 2);
-                delimiter += s[0];
-                numbers = s[1];
-            }
-            delimiter = "[" + delimiter + "]";
+            String delimiter = getDelimiter(numbersInput);
+            String numbers = getNumbersString(numbersInput);
             return addInputs(getNumbers(numbers, delimiter));
         }
     }
