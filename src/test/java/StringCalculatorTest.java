@@ -33,4 +33,14 @@ public class StringCalculatorTest {
         int result = calculator.add("1", "2");
         assertEquals(3, result);
     }
+
+    @Test
+    @DisplayName("given any number of inputs, " +
+            "when doing add operation, " +
+            "then returned value is the sum of the given inputs")
+    void addOnAnyInputs_returns_sum() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("1", "2", "3", "4");
+        assertEquals(10, result);
+    }
 }
