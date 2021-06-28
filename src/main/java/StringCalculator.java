@@ -32,10 +32,10 @@ public class StringCalculator {
      * get integer numbers from a string of numbers
      */
     private int[] getNumbers(String numbers, String delimiter) {
-        String[] numberStrings = numbers.split(delimiter);
-        int[] numberInts = new int[numberStrings.length];
-        for (int index = 0; index < numberStrings.length; index++) {
-            String number = numberStrings[index].trim();
+        String[] numbersString = numbers.split(delimiter);
+        int[] numberInts = new int[numbersString.length];
+        for (int index = 0; index < numbersString.length; index++) {
+            String number = numbersString[index].trim();
             if (!number.isEmpty()) {
                 numberInts[index] = Integer.parseInt(number);
             }
