@@ -1,23 +1,24 @@
 public class StringCalculator {
 
     /**
-     * single input
+     * get integer numbers from a string of numbers
      */
-    private int parseSingleInput(String input) {
-        if (input.equals("")) {
-            return 0;
-        } else {
-            return Integer.parseInt(input);
+    private int[] getNumbers(String numbers) {
+        String[] numberStrings = numbers.split(",");
+        int[] numberInts = new int[numberStrings.length];
+        for (int index = 0; index < numberStrings.length; index++) {
+            numberInts[index] = Integer.parseInt(numberStrings[index].trim());
         }
+        return numberInts;
     }
 
     /**
      * multiple inputs
      */
-    private int addInputs(String... inputs) {
+    private int addInputs(int... numbers) {
         int sum = 0;
-        for (String input : inputs) {
-            sum += Integer.parseInt(input);
+        for (int number : numbers) {
+            sum += number;
         }
         return sum;
     }
@@ -25,11 +26,11 @@ public class StringCalculator {
     /**
      * add given inputs
      */
-    public int add(String... inputs) {
-        if (inputs.length == 1) {
-            return parseSingleInput(inputs[0]);
+    public int add(String numbers) {
+        if (numbers.isEmpty()) {
+            return 0;
         } else {
-            return addInputs(inputs);
+            return addInputs(getNumbers(numbers));
         }
     }
 }

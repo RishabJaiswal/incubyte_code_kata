@@ -30,7 +30,7 @@ public class StringCalculatorTest {
             "then returned value is the sum of 2 inputs")
     void addOnTwoNonEmptyInputs_returns_sum() {
         StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("1", "2");
+        int result = calculator.add("1,2");
         assertEquals(3, result);
     }
 
@@ -41,9 +41,9 @@ public class StringCalculatorTest {
     void addOnAnyInputs_returns_sum() {
         StringCalculator calculator = new StringCalculator();
         assertEquals(1, calculator.add("1"));
-        assertEquals(3, calculator.add("1", "2"));
-        assertEquals(6, calculator.add("1", "2", "3"));
-        assertEquals(10, calculator.add("1", "2", "3", "4"));
-        assertEquals(15, calculator.add("1", "2", "3", "4", "5"));
+        assertEquals(3, calculator.add("1,2"));
+        assertEquals(6, calculator.add("1,2,3"));
+        assertEquals(10, calculator.add("1,2,3,4"));
+        assertEquals(15, calculator.add("1,2,3,4,5"));
     }
 }
