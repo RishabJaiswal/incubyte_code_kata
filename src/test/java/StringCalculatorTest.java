@@ -112,4 +112,17 @@ public class StringCalculatorTest {
         assertEquals(10, calculator.add("//####\n1,2\n3####4"));
         assertEquals(15, calculator.add("//**\n1,2,3,4\n5"));
     }
+
+    @Test
+    @DisplayName("given inputs with multiple delimiters of any length, " +
+            "when doing add operation, " +
+            "then returned value is the sum of the given inputs after the delimiters list")
+    void addOnInputsWithGivenDelimiters_returns_sum() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(1, calculator.add("//[''][*]\n1"));
+        assertEquals(3, calculator.add("//-\n1-2"));
+        assertEquals(6, calculator.add("//[*][%]\n1*2%3"));
+        assertEquals(10, calculator.add("//[*][-][#]\n1*2-3#4"));
+        assertEquals(15, calculator.add("//[##][**]\n1,2\n3##4**5"));
+    }
 }
