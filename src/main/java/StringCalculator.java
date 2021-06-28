@@ -3,8 +3,8 @@ public class StringCalculator {
     /**
      * get integer numbers from a string of numbers
      */
-    private int[] getNumbers(String numbers) {
-        String[] numberStrings = numbers.split("[\\n,]");
+    private int[] getNumbers(String numbers, String delimiter) {
+        String[] numberStrings = numbers.split(delimiter);
         int[] numberInts = new int[numberStrings.length];
         for (int index = 0; index < numberStrings.length; index++) {
             numberInts[index] = Integer.parseInt(numberStrings[index].trim());
@@ -26,11 +26,19 @@ public class StringCalculator {
     /**
      * add given inputs
      */
-    public int add(String numbers) {
-        if (numbers.isEmpty()) {
+    public int add(String numbersInput) {
+        if (numbersInput.isEmpty()) {
             return 0;
         } else {
-            return addInputs(getNumbers(numbers));
+            String delimiter = "\\n,";
+            String numbers = numbersInput;
+            if (numbersInput.startsWith("//")) {
+                String[] s = numbersInput.substring(2).split("\n", 2);
+                delimiter += s[0];
+                numbers = s[1];
+            }
+            delimiter = "[" + delimiter + "]";
+            return addInputs(getNumbers(numbers, delimiter));
         }
     }
 }
