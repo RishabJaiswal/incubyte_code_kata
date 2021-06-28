@@ -19,7 +19,7 @@ public class StringCalculator {
     /**
      * get numbers list string from the given input
      */
-    private String getNumbersString(String numbersInput) {
+    private String getNumbers(String numbersInput) {
         String numbers = numbersInput;
         if (numbersInput.startsWith("//")) {
             String[] splits = numbersInput.substring(2).split("\n", 2);
@@ -72,7 +72,7 @@ public class StringCalculator {
             return 0;
         } else {
             String delimiter = getDelimiter(numbersInput);
-            String numbers = getNumbersString(numbersInput);
+            String numbers = getNumbers(numbersInput);
             return addInputs(getNumbers(numbers, delimiter));
         }
     }
