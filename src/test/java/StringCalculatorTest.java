@@ -88,4 +88,15 @@ public class StringCalculatorTest {
         //assert exception message
         assertEquals("[-2, -3]", exception.getMessage());
     }
+
+    @Test
+    @DisplayName("given inputs some are greater than 1000, " +
+            "when doing add operation, " +
+            "then returned value is the sum of the inputs that are less than 1001")
+    void addOnAnyInputs_returns_sumOfInputsLessThan1001() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(1, calculator.add("1,2000"));
+        assertEquals(4, calculator.add("1,1001,3"));
+        assertEquals(1008, calculator.add("1,999,1001,8"));
+    }
 }

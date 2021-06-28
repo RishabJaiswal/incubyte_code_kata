@@ -48,7 +48,9 @@ public class StringCalculator {
         int sum = 0;
         List<Integer> negativeNumbers = new ArrayList<Integer>();
         for (int number : numbers) {
-            sum += number;
+            if (number <= 1000) {
+                sum += number;
+            }
             if (number < 0) {
                 negativeNumbers.add(number);
             }
